@@ -13,7 +13,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #D3C2A4;
+            background-color: #1a1410;
             min-height: 100vh;
         }
 
@@ -65,9 +65,9 @@
         .welcome-title {
             font-size: 5rem;
             font-weight: bold;
-            color: #2B2118;
+            color: #D3C2A4;
             font-family: cursive;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.1);
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
             animation: waveText 2s ease-in-out infinite;
             margin-bottom: 20px;
         }
@@ -75,9 +75,9 @@
         .welcome-subtitle {
             font-size: 4rem;
             font-weight: bold;
-            color: #2B2118;
+            color: #D3C2A4;
             font-family: cursive;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.1);
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
             animation: waveText 2s ease-in-out infinite;
             animation-delay: 0.2s;
         }
@@ -93,14 +93,14 @@
         .divider-line {
             width: 64px;
             height: 4px;
-            background-color: #2B2118;
+            background-color: #D3C2A4;
             border-radius: 9999px;
         }
 
         .divider-dot {
             width: 12px;
             height: 12px;
-            background-color: #2B2118;
+            background-color: #D3C2A4;
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
         }
@@ -111,15 +111,15 @@
         }
 
         .enter-btn {
-            background-color: #2B2118;
-            color: #D3C2A4;
+            background-color: #D3C2A4;
+            color: #1a1410;
             padding: 16px 32px;
             border: none;
             border-radius: 9999px;
             font-size: 1.25rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             transition: transform 0.3s ease;
             margin-top: 30px;
         }
@@ -146,14 +146,14 @@
         .page-title {
             font-size: 3rem;
             font-weight: bold;
-            color: #2B2118;
+            color: #D3C2A4;
             font-family: cursive;
             margin-bottom: 16px;
         }
 
         .page-subtitle {
             font-size: 1.25rem;
-            color: #2B2118;
+            color: #D3C2A4;
         }
 
         .song-grid {
@@ -169,18 +169,19 @@
         }
 
         .song-card {
-            background-color: rgba(43, 33, 24, 0.05);
-            border: 2px solid rgba(43, 33, 24, 0.1);
+            background-color: rgba(211, 194, 164, 0.1);
+            border: 2px solid rgba(211, 194, 164, 0.2);
             border-radius: 24px;
             padding: 24px;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
 
         .song-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            background-color: rgba(211, 194, 164, 0.15);
         }
 
         .song-card-header {
@@ -197,19 +198,19 @@
         .song-title {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #2B2118;
+            color: #D3C2A4;
             margin-bottom: 8px;
         }
 
         .song-movie {
             font-size: 0.875rem;
             font-style: italic;
-            color: #2B2118;
+            color: #D3C2A4;
             opacity: 0.7;
         }
 
         .song-arrow {
-            color: #2B2118;
+            color: #D3C2A4;
             opacity: 0.6;
             font-size: 2rem;
             transition: transform 0.3s ease;
@@ -222,20 +223,20 @@
         .song-progress {
             margin-top: 16px;
             padding-top: 16px;
-            border-top: 1px solid rgba(43, 33, 24, 0.2);
+            border-top: 1px solid rgba(211, 194, 164, 0.2);
         }
 
         .progress-bar {
             width: 100%;
             height: 8px;
-            background-color: rgba(43, 33, 24, 0.1);
+            background-color: rgba(211, 194, 164, 0.2);
             border-radius: 9999px;
             overflow: hidden;
         }
 
         .progress-fill {
             height: 100%;
-            background-color: #2B2118;
+            background-color: #D3C2A4;
             width: 0;
             transition: width 0.5s ease;
         }
@@ -255,23 +256,24 @@
         }
 
         .lyrics-card {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(211, 194, 164, 0.1);
+            border: 2px solid rgba(211, 194, 164, 0.2);
             border-radius: 24px;
             padding: 48px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .lyrics-header {
             text-align: center;
             margin-bottom: 32px;
             padding-bottom: 24px;
-            border-bottom: 2px solid rgba(43, 33, 24, 0.2);
+            border-bottom: 2px solid rgba(211, 194, 164, 0.2);
         }
 
         .lyrics-title {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #2B2118;
+            color: #D3C2A4;
             font-family: cursive;
             margin-bottom: 12px;
         }
@@ -279,7 +281,7 @@
         .lyrics-movie {
             font-size: 1.125rem;
             font-style: italic;
-            color: #2B2118;
+            color: #D3C2A4;
             opacity: 0.7;
         }
 
@@ -291,7 +293,7 @@
             white-space: pre-wrap;
             font-size: 1.125rem;
             line-height: 1.8;
-            color: #2B2118;
+            color: #D3C2A4;
         }
 
         .lyrics-footer {
@@ -299,7 +301,7 @@
             justify-content: space-between;
             gap: 16px;
             padding-top: 24px;
-            border-top: 2px solid rgba(43, 33, 24, 0.2);
+            border-top: 2px solid rgba(211, 194, 164, 0.2);
         }
 
         .btn {
@@ -320,13 +322,13 @@
         }
 
         .btn-back {
-            background-color: rgba(43, 33, 24, 0.1);
-            color: #2B2118;
+            background-color: rgba(211, 194, 164, 0.2);
+            color: #D3C2A4;
         }
 
         .btn-next {
-            background-color: #2B2118;
-            color: #D3C2A4;
+            background-color: #D3C2A4;
+            color: #1a1410;
         }
 
         .btn-next:hover {
@@ -357,7 +359,7 @@
         <svg class="wave-background" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                    <path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="#2B2118" stroke-width="2"/>
+                    <path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="#D3C2A4" stroke-width="2"/>
                 </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#wave)"/>
@@ -373,8 +375,8 @@
                 <div class="divider-line"></div>
             </div>
             
-            <button class="enter-btn" onclick="showPage('songListPage')">
-                Enter Celebration →
+            <button class="enter-btn" onclick="scrollToSongs()">
+                Scroll Down ↓
             </button>
         </div>
     </div>
@@ -383,7 +385,7 @@
         <div class="container">
             <div class="page-header">
                 <h1 class="page-title">Song Collection</h1>
-                <p class="page-subtitle">Choose your favorite song to celebrate!</p>
+                <p class="page-subtitle">Song sequence list with lyrics:</p>
             </div>
             
             <div class="song-grid" id="songGrid"></div>
@@ -449,6 +451,12 @@
         ];
 
         var currentSongIndex = 0;
+
+        function scrollToSongs() {
+            document.getElementById('songListPage').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
 
         function showPage(pageId) {
             var pages = document.querySelectorAll('.page');
