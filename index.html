@@ -1,0 +1,280 @@
+import React, { useState } from 'react';
+import { ChevronRight, ArrowLeft } from 'lucide-react';
+
+const SangeetWebsite = () => {
+  const [currentPage, setCurrentPage] = useState('welcome');
+  const [selectedSong, setSelectedSong] = useState(null);
+
+  const songs = [
+    {
+      id: 1,
+      title: "Maahi Ve",
+      movie: "Kal Ho Naa Ho",
+      lyrics: `Maahi ve, maahi ve, maahi ve
+Tere liye duniya chhod di maine
+Saari baatein khud se tod li maine
+Mujhe kuch aur nahin koi fikr yaahan
+Sirf teri kami hai
+
+Maahi ve, maahi ve, maahi ve
+Tera mera pyaar naya hai
+Ya tere mere janam ka sath purana
+Tere mere rishte ko
+Kya keh ke bulaun main...`
+    },
+    {
+      id: 2,
+      title: "London Thumakda",
+      movie: "Queen",
+      lyrics: `London thumakda, Aaya ni main aaya
+London thumakda, Aaya ni main aaya
+Pataka pori gabru, Jaake naiyon aaya
+Jatti main, London thumakda
+
+Jeans pehen ke aayi main
+Heels pehen ke aayi main
+Makeup kar ke aayi main
+Feeling good today...`
+    },
+    {
+      id: 3,
+      title: "Gallan Goodiyaan",
+      movie: "Dil Dhadakne Do",
+      lyrics: `Gallan goodiyaan, gallan goodiyaan
+Gallan goodiyaan, kar le
+Gallan goodiyaan, gallan goodiyaan
+Gallan goodiyaan, kar le
+
+Chal ud chaliye
+Dariyaa kinara khol de manzilein
+Tu jahan main wahan
+Saare dukh dard bhul ke...`
+    },
+    {
+      id: 4,
+      title: "Badtameez Dil",
+      movie: "Yeh Jawaani Hai Deewani",
+      lyrics: `Badtameez dil, badtameez dil
+Badtameez dil, maane na
+Badtameez dil, badtameez dil
+Badtameez dil, maane na
+
+Ishq kiya maine, kaise dare dare
+Dekha re dekha, kaisa nasha chadhta hai
+Baawra sa dil, pagla sa...`
+    },
+    {
+      id: 5,
+      title: "Bole Chudiyan",
+      movie: "Kabhi Khushi Kabhie Gham",
+      lyrics: `Bole chudiyan, bole kangna
+Haaye main hogayi teri saajna
+Bole chudiyan, bole kangna
+Haaye main hogayi teri saajna
+
+Mujhe chhede saanwariya
+Jaane kya ho jaaye
+Aisi baatein kare saanwariya
+Dil mera ghabraaye...`
+    }
+  ];
+
+  const handleSongSelect = (song) => {
+    setSelectedSong(song);
+    setCurrentPage('lyrics');
+  };
+
+  const handleNext = () => {
+    const currentIndex = songs.findIndex(s => s.id === selectedSong.id);
+    const nextIndex = (currentIndex + 1) % songs.length;
+    setSelectedSong(songs[nextIndex]);
+  };
+
+  const handleBack = () => {
+    setCurrentPage('songList');
+    setSelectedSong(null);
+  };
+
+  // Welcome Page
+  if (currentPage === 'welcome') {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4 overflow-hidden relative" style={{ backgroundColor: '#D3C2A4' }}>
+        {/* Wavy background patterns */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                <path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="#2B2118" strokeWidth="2"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#wave)"/>
+          </svg>
+        </div>
+
+        <div className="relative z-10 text-center space-y-8 animate-fade-in">
+          <div className="space-y-4">
+            <h1 className="text-6xl md:text-8xl font-bold drop-shadow-2xl animate-wave-text" style={{
+              fontFamily: 'cursive',
+              color: '#2B2118',
+              textShadow: '4px 4px 8px rgba(0,0,0,0.1)'
+            }}>
+              Sonu Dada Cha
+            </h1>
+            <h2 className="text-5xl md:text-7xl font-bold drop-shadow-2xl animate-wave-text" style={{
+              fontFamily: 'cursive',
+              animationDelay: '0.2s',
+              color: '#2B2118',
+              textShadow: '4px 4px 8px rgba(0,0,0,0.1)'
+            }}>
+              Sangeet
+            </h2>
+          </div>
+          
+          <div className="flex items-center justify-center gap-3 pt-8">
+            <div className="w-16 h-1 rounded-full" style={{ backgroundColor: '#2B2118' }}></div>
+            <div className="w-3 h-3 rounded-full animate-pulse" style={{ backgroundColor: '#2B2118' }}></div>
+            <div className="w-16 h-1 rounded-full" style={{ backgroundColor: '#2B2118' }}></div>
+          </div>
+
+          <button
+            onClick={() => setCurrentPage('songList')}
+            className="mt-12 px-8 py-4 rounded-full text-xl font-semibold shadow-2xl hover:scale-105 transition-transform duration-300 flex items-center gap-2 mx-auto"
+            style={{ 
+              backgroundColor: '#2B2118',
+              color: '#D3C2A4'
+            }}
+          >
+            Enter Celebration
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        <style jsx>{`
+          @keyframes wave-text {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+          }
+          @keyframes fade-in {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+          }
+          .animate-wave-text {
+            animation: wave-text 2s ease-in-out infinite;
+          }
+          .animate-fade-in {
+            animation: fade-in 1s ease-out;
+          }
+        `}</style>
+      </div>
+    );
+  }
+
+  // Song List Page
+  if (currentPage === 'songList') {
+    return (
+      <div className="min-h-screen p-8" style={{ backgroundColor: '#D3C2A4' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-bold mb-4 drop-shadow-lg" style={{ 
+              fontFamily: 'cursive',
+              color: '#2B2118'
+            }}>
+              Song Collection
+            </h1>
+            <p className="text-xl" style={{ color: '#2B2118' }}>Choose your favorite song to celebrate!</p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {songs.map((song, index) => (
+              <div
+                key={song.id}
+                onClick={() => handleSongSelect(song)}
+                className="rounded-3xl p-6 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer group"
+                style={{ 
+                  backgroundColor: 'rgba(43, 33, 24, 0.05)',
+                  border: '2px solid rgba(43, 33, 24, 0.1)',
+                  animationDelay: `${index * 0.1}s` 
+                }}
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-2 group-hover:opacity-80" style={{ color: '#2B2118' }}>
+                      {song.title}
+                    </h3>
+                    <p className="text-sm italic" style={{ color: '#2B2118', opacity: 0.7 }}>{song.movie}</p>
+                  </div>
+                  <ChevronRight className="w-8 h-8 transform group-hover:translate-x-1 transition-all" style={{ color: '#2B2118', opacity: 0.6 }} />
+                </div>
+                
+                <div className="mt-4 pt-4" style={{ borderTop: '1px solid rgba(43, 33, 24, 0.2)' }}>
+                  <div className="flex items-center gap-2">
+                    <div className="w-full h-2 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(43, 33, 24, 0.1)' }}>
+                      <div className="h-full rounded-full w-0 group-hover:w-full transition-all duration-500" style={{ backgroundColor: '#2B2118' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Lyrics Page
+  if (currentPage === 'lyrics' && selectedSong) {
+    return (
+      <div className="min-h-screen p-8" style={{ backgroundColor: '#D3C2A4' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-3xl shadow-2xl p-8 md:p-12" style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
+            <div className="text-center mb-8 pb-6" style={{ borderBottom: '2px solid rgba(43, 33, 24, 0.2)' }}>
+              <h1 className="text-4xl md:text-5xl font-bold mb-3" style={{ 
+                fontFamily: 'cursive',
+                color: '#2B2118'
+              }}>
+                {selectedSong.title}
+              </h1>
+              <p className="text-lg italic" style={{ color: '#2B2118', opacity: 0.7 }}>{selectedSong.movie}</p>
+            </div>
+
+            <div className="mb-8">
+              <pre className="whitespace-pre-wrap text-lg leading-relaxed font-sans" style={{ color: '#2B2118' }}>
+                {selectedSong.lyrics}
+              </pre>
+            </div>
+
+            <div className="flex gap-4 justify-between pt-6" style={{ borderTop: '2px solid rgba(43, 33, 24, 0.2)' }}>
+              <button
+                onClick={handleBack}
+                className="flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                style={{ 
+                  backgroundColor: 'rgba(43, 33, 24, 0.1)',
+                  color: '#2B2118'
+                }}
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Back to List
+              </button>
+              
+              <button
+                onClick={handleNext}
+                className="flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:opacity-90"
+                style={{ 
+                  backgroundColor: '#2B2118',
+                  color: '#D3C2A4'
+                }}
+              >
+                Next Song
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return null;
+};
+
+export default SangeetWebsite;
