@@ -48,7 +48,10 @@
 
         .wave-background {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             opacity: 0.1;
             pointer-events: none;
         }
@@ -183,8 +186,12 @@
         .song-card-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
+            align-items: flex-start;
             margin-bottom: 16px;
+        }
+
+        .song-info {
+            flex: 1;
         }
 
         .song-title {
@@ -475,7 +482,7 @@
                 var song = songs[i];
                 html += '<div class="song-card" onclick="showSong(' + i + ')">';
                 html += '  <div class="song-card-header">';
-                html += '    <div>';
+                html += '    <div class="song-info">';
                 html += '      <h3 class="song-title">' + song.title + '</h3>';
                 html += '      <p class="song-movie">' + song.movie + '</p>';
                 html += '    </div>';
