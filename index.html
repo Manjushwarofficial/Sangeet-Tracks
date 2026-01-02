@@ -15,14 +15,7 @@
             font-family: Arial, sans-serif;
             background-color: #1a1410;
             min-height: 100vh;
-        }
-
-        .page {
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .page.active {
-            display: block;
+            color: #D3C2A4;
         }
 
         @keyframes fadeIn {
@@ -35,7 +28,7 @@
             50% { transform: translateY(-10px); }
         }
 
-        #welcomePage {
+        .welcome-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -109,27 +102,17 @@
             50% { opacity: 0.5; }
         }
 
-        .enter-btn {
-            background-color: #D3C2A4;
-            color: #1a1410;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 9999px;
+        .scroll-text {
+            color: #D3C2A4;
             font-size: 1.25rem;
             font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
             margin-top: 30px;
+            opacity: 0.8;
         }
 
-        .enter-btn:hover {
-            transform: scale(1.05);
-        }
-
-        #songListPage {
+        .song-section {
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         .container {
@@ -172,22 +155,18 @@
             border: 2px solid rgba(211, 194, 164, 0.2);
             border-radius: 24px;
             padding: 24px;
-            cursor: pointer;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
-        }
-
-        .song-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            background-color: rgba(211, 194, 164, 0.15);
+            margin-bottom: 40px;
         }
 
         .song-card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(211, 194, 164, 0.2);
         }
 
         .song-info {
@@ -195,97 +174,21 @@
         }
 
         .song-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: bold;
             color: #D3C2A4;
             margin-bottom: 8px;
         }
 
         .song-movie {
-            font-size: 0.875rem;
-            font-style: italic;
-            color: #D3C2A4;
-            opacity: 0.7;
-        }
-
-        .song-arrow {
-            color: #D3C2A4;
-            opacity: 0.6;
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .song-card:hover .song-arrow {
-            transform: translateX(4px);
-        }
-
-        .song-progress {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(211, 194, 164, 0.2);
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background-color: rgba(211, 194, 164, 0.2);
-            border-radius: 9999px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background-color: #D3C2A4;
-            width: 0;
-            transition: width 0.5s ease;
-        }
-
-        .song-card:hover .progress-fill {
-            width: 100%;
-        }
-
-        #lyricsPage {
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .lyrics-container {
-            max-width: 768px;
-            margin: 0 auto;
-        }
-
-        .lyrics-card {
-            background-color: rgba(211, 194, 164, 0.1);
-            border: 2px solid rgba(211, 194, 164, 0.2);
-            border-radius: 24px;
-            padding: 48px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .lyrics-header {
-            text-align: center;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 2px solid rgba(211, 194, 164, 0.2);
-        }
-
-        .lyrics-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #D3C2A4;
-            font-family: cursive;
-            margin-bottom: 12px;
-        }
-
-        .lyrics-movie {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-style: italic;
             color: #D3C2A4;
             opacity: 0.7;
         }
 
         .lyrics-content {
-            margin-bottom: 32px;
+            margin-top: 20px;
         }
 
         .lyrics-text {
@@ -293,45 +196,6 @@
             font-size: 1.125rem;
             line-height: 1.8;
             color: #D3C2A4;
-        }
-
-        .lyrics-footer {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            padding-top: 24px;
-            border-top: 2px solid rgba(211, 194, 164, 0.2);
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 9999px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-        }
-
-        .btn-back {
-            background-color: rgba(211, 194, 164, 0.2);
-            color: #D3C2A4;
-        }
-
-        .btn-next {
-            background-color: #D3C2A4;
-            color: #1a1410;
-        }
-
-        .btn-next:hover {
-            opacity: 0.9;
         }
 
         @media (max-width: 768px) {
@@ -344,17 +208,17 @@
             .page-title {
                 font-size: 2rem;
             }
-            .lyrics-card {
-                padding: 24px;
+            .song-card {
+                padding: 20px;
             }
-            .lyrics-title {
-                font-size: 2rem;
+            .song-title {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div id="welcomePage" class="page active">
+    <div class="welcome-section">
         <svg class="wave-background" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -374,13 +238,13 @@
                 <div class="divider-line"></div>
             </div>
             
-            <button class="enter-btn" onclick="scrollToSongs()">
+            <div class="scroll-text">
                 Scroll Down ↓
-            </button>
+            </div>
         </div>
     </div>
 
-    <div id="songListPage" class="page">
+    <div class="song-section">
         <div class="container">
             <div class="page-header">
                 <h1 class="page-title">Song Collection</h1>
@@ -388,30 +252,6 @@
             </div>
             
             <div class="song-grid" id="songGrid"></div>
-        </div>
-    </div>
-
-    <div id="lyricsPage" class="page">
-        <div class="lyrics-container">
-            <div class="lyrics-card">
-                <div class="lyrics-header">
-                    <h1 class="lyrics-title" id="lyricsTitle"></h1>
-                    <p class="lyrics-movie" id="lyricsMovie"></p>
-                </div>
-                
-                <div class="lyrics-content">
-                    <pre class="lyrics-text" id="lyricsText"></pre>
-                </div>
-                
-                <div class="lyrics-footer">
-                    <button class="btn btn-back" onclick="showPage('songListPage')">
-                        ← Back to List
-                    </button>
-                    <button class="btn btn-next" onclick="nextSong()">
-                        Next Song →
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -449,56 +289,21 @@
             }
         ];
 
-        var currentSongIndex = 0;
-
-        function scrollToSongs() {
-            document.getElementById('songListPage').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-
-        function showPage(pageId) {
-            var pages = document.querySelectorAll('.page');
-            for (var i = 0; i < pages.length; i++) {
-                pages[i].classList.remove('active');
-            }
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        function showSong(index) {
-            currentSongIndex = index;
-            var song = songs[index];
-            
-            document.getElementById('lyricsTitle').textContent = song.title;
-            document.getElementById('lyricsMovie').textContent = song.movie;
-            document.getElementById('lyricsText').textContent = song.lyrics;
-            
-            showPage('lyricsPage');
-        }
-
-        function nextSong() {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            showSong(currentSongIndex);
-        }
-
         function renderSongs() {
             var songGrid = document.getElementById('songGrid');
             var html = '';
             
             for (var i = 0; i < songs.length; i++) {
                 var song = songs[i];
-                html += '<div class="song-card" onclick="showSong(' + i + ')">';
+                html += '<div class="song-card">';
                 html += '  <div class="song-card-header">';
                 html += '    <div class="song-info">';
                 html += '      <h3 class="song-title">' + song.title + '</h3>';
                 html += '      <p class="song-movie">' + song.movie + '</p>';
                 html += '    </div>';
-                html += '    <div class="song-arrow">→</div>';
                 html += '  </div>';
-                html += '  <div class="song-progress">';
-                html += '    <div class="progress-bar">';
-                html += '      <div class="progress-fill"></div>';
-                html += '    </div>';
+                html += '  <div class="lyrics-content">';
+                html += '    <pre class="lyrics-text">' + song.lyrics + '</pre>';
                 html += '  </div>';
                 html += '</div>';
             }
