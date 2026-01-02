@@ -1,317 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonu Dada Cha Sangeet</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonu Dada Cha Sangeet</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1410;
-            min-height: 100vh;
-            color: #D3C2A4;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1410;
+    color: #D3C2A4;
+}
 
-        @keyframes waveText {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
+.page {
+    min-height: 100vh;
+    display: none;
+}
 
-        .welcome-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
+.page.active {
+    display: block;
+}
 
-        .wave-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.1;
-            pointer-events: none;
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
 
-        .welcome-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-        }
+@keyframes waveText {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
-        .welcome-title {
-            font-size: 5rem;
-            font-weight: bold;
-            color: #D3C2A4;
-            font-family: cursive;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-            animation: waveText 2s ease-in-out infinite;
-            margin-bottom: 20px;
-        }
+/* ---------- LANDING ---------- */
+#welcome {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+}
 
-        .welcome-subtitle {
-            font-size: 4rem;
-            font-weight: bold;
-            color: #D3C2A4;
-            font-family: cursive;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-            animation: waveText 2s ease-in-out infinite;
-            animation-delay: 0.2s;
-        }
+.welcome-title {
+    font-size: 4rem;
+    font-family: cursive;
+    animation: waveText 2s infinite;
+}
 
-        .divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 40px 0;
-        }
+.welcome-subtitle {
+    font-size: 3rem;
+    font-family: cursive;
+    animation: waveText 2s infinite;
+    animation-delay: 0.2s;
+}
 
-        .divider-line {
-            width: 64px;
-            height: 4px;
-            background-color: #D3C2A4;
-            border-radius: 9999px;
-        }
+.enter-btn {
+    margin-top: 30px;
+    padding: 16px 32px;
+    border-radius: 999px;
+    border: none;
+    background: #D3C2A4;
+    color: #1a1410;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .divider-dot {
-            width: 12px;
-            height: 12px;
-            background-color: #D3C2A4;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
+.enter-btn:hover {
+    transform: scale(1.05);
+}
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+/* ---------- SONG LIST ---------- */
+.container {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
 
-        .scroll-text {
-            color: #D3C2A4;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 30px;
-            opacity: 0.8;
-        }
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: cursive;
+    margin-bottom: 30px;
+}
 
-        .song-section {
-            min-height: 100vh;
-            padding: 60px 20px;
-        }
+.song-grid {
+    display: grid;
+    gap: 24px;
+}
 
-        .container {
-            max-width: 1024px;
-            margin: 0 auto;
-        }
+@media (min-width: 768px) {
+    .song-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+.song-card {
+    background: rgba(211,194,164,0.1);
+    border: 2px solid rgba(211,194,164,0.2);
+    padding: 24px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .page-title {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #D3C2A4;
-            font-family: cursive;
-            margin-bottom: 16px;
-        }
+.song-card:hover {
+    transform: translateY(-6px);
+    background: rgba(211,194,164,0.15);
+}
 
-        .page-subtitle {
-            font-size: 1.25rem;
-            color: #D3C2A4;
-        }
+.song-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
 
-        .song-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
+.song-movie {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
 
-        @media (min-width: 768px) {
-            .song-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+/* ---------- LYRICS ---------- */
+#lyricsPage {
+    padding: 40px 20px;
+    animation: fadeIn 0.4s ease-in;
+}
 
-        .song-card {
-            background-color: rgba(211, 194, 164, 0.1);
-            border: 2px solid rgba(211, 194, 164, 0.2);
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            margin-bottom: 40px;
-        }
+.lyrics-card {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(211,194,164,0.1);
+    border: 2px solid rgba(211,194,164,0.2);
+    padding: 40px;
+    border-radius: 24px;
+}
 
-        .song-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid rgba(211, 194, 164, 0.2);
-        }
+.lyrics-title {
+    font-size: 2.3rem;
+    font-family: cursive;
+    text-align: center;
+}
 
-        .song-info {
-            flex: 1;
-        }
+.lyrics-movie {
+    text-align: center;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
 
-        .song-title {
-            font-size: 1.75rem;
-            font-weight: bold;
-            color: #D3C2A4;
-            margin-bottom: 8px;
-        }
+.lyrics-text {
+    white-space: pre-wrap;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
 
-        .song-movie {
-            font-size: 1rem;
-            font-style: italic;
-            color: #D3C2A4;
-            opacity: 0.7;
-        }
+.lyrics-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
 
-        .lyrics-content {
-            margin-top: 20px;
-        }
+.btn {
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        .lyrics-text {
-            white-space: pre-wrap;
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: #D3C2A4;
-        }
+.btn-back {
+    background: rgba(211,194,164,0.2);
+    color: #D3C2A4;
+}
 
-        @media (max-width: 768px) {
-            .welcome-title {
-                font-size: 3rem;
-            }
-            .welcome-subtitle {
-                font-size: 2.5rem;
-            }
-            .page-title {
-                font-size: 2rem;
-            }
-            .song-card {
-                padding: 20px;
-            }
-            .song-title {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+.btn-next {
+    background: #D3C2A4;
+    color: #1a1410;
+}
+</style>
 </head>
+
 <body>
-    <div class="welcome-section">
-        <svg class="wave-background" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                    <path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="#D3C2A4" stroke-width="2"/>
-                </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#wave)"/>
-        </svg>
-        
-        <div class="welcome-content">
-            <h1 class="welcome-title">Sonu Dada Cha</h1>
-            <h2 class="welcome-subtitle">Sangeet</h2>
-            
-            <div class="divider">
-                <div class="divider-line"></div>
-                <div class="divider-dot"></div>
-                <div class="divider-line"></div>
-            </div>
-            
-            <div class="scroll-text">
-                Scroll Down ↓
-            </div>
+
+<!-- LANDING PAGE -->
+<div id="landingPage" class="page active">
+
+    <div id="welcome">
+        <h1 class="welcome-title">Sonu Dada Cha</h1>
+        <h2 class="welcome-subtitle">Sangeet</h2>
+        <button class="enter-btn" onclick="scrollToSongs()">Scroll Down ↓</button>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">Song Collection</h1>
+        <div class="song-grid" id="songGrid"></div>
+    </div>
+
+</div>
+
+<!-- LYRICS PAGE -->
+<div id="lyricsPage" class="page">
+
+    <div class="lyrics-card">
+        <h1 class="lyrics-title" id="lyricsTitle"></h1>
+        <p class="lyrics-movie" id="lyricsMovie"></p>
+
+        <pre class="lyrics-text" id="lyricsText"></pre>
+
+        <div class="lyrics-footer">
+            <button class="btn btn-back" onclick="showPage('landingPage')">← Back</button>
+            <button class="btn btn-next" onclick="nextSong()">Next →</button>
         </div>
     </div>
 
-    <div class="song-section">
-        <div class="container">
-            <div class="page-header">
-                <h1 class="page-title">Song Collection</h1>
-                <p class="page-subtitle">Song sequence list with lyrics:</p>
+</div>
+
+<script>
+var songs = [
+    {
+        title: "Maahi Ve",
+        movie: "Kal Ho Naa Ho",
+        lyrics: "Maahi ve, maahi ve...\nTere liye duniya chhod di maine..."
+    },
+    {
+        title: "London Thumakda",
+        movie: "Queen",
+        lyrics: "London thumakda...\nFeeling good today..."
+    },
+    {
+        title: "Gallan Goodiyaan",
+        movie: "Dil Dhadakne Do",
+        lyrics: "Gallan goodiyaan...\nChal ud chaliye..."
+    },
+    {
+        title: "Badtameez Dil",
+        movie: "YJHD",
+        lyrics: "Badtameez dil...\nBaawra sa dil..."
+    },
+    {
+        title: "Bole Chudiyan",
+        movie: "K3G",
+        lyrics: "Bole chudiyan...\nHaaye main hogayi teri..."
+    }
+];
+
+var currentSongIndex = 0;
+
+function scrollToSongs() {
+    document.getElementById("songGrid").scrollIntoView({ behavior: "smooth" });
+}
+
+function showPage(pageId) {
+    document.getElementById("landingPage").style.display = "none";
+    document.getElementById("lyricsPage").style.display = "none";
+    document.getElementById(pageId).style.display = "block";
+}
+
+function showSong(index) {
+    currentSongIndex = index;
+    document.getElementById("lyricsTitle").innerText = songs[index].title;
+    document.getElementById("lyricsMovie").innerText = songs[index].movie;
+    document.getElementById("lyricsText").innerText = songs[index].lyrics;
+    showPage("lyricsPage");
+}
+
+function nextSong() {
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    showSong(currentSongIndex);
+}
+
+function renderSongs() {
+    var grid = document.getElementById("songGrid");
+    grid.innerHTML = "";
+    songs.forEach((song, i) => {
+        grid.innerHTML += `
+            <div class="song-card" onclick="showSong(${i})">
+                <div class="song-title">${song.title}</div>
+                <div class="song-movie">${song.movie}</div>
             </div>
-            
-            <div class="song-grid" id="songGrid"></div>
-        </div>
-    </div>
+        `;
+    });
+}
 
-    <script>
-        var songs = [
-            {
-                id: 1,
-                title: "Maahi Ve",
-                movie: "Kal Ho Naa Ho",
-                lyrics: "Maahi ve, maahi ve, maahi ve\nTere liye duniya chhod di maine\nSaari baatein khud se tod li maine\nMujhe kuch aur nahin koi fikr yaahan\nSirf teri kami hai\n\nMaahi ve, maahi ve, maahi ve\nTera mera pyaar naya hai\nYa tere mere janam ka sath purana\nTere mere rishte ko\nKya keh ke bulaun main"
-            },
-            {
-                id: 2,
-                title: "London Thumakda",
-                movie: "Queen",
-                lyrics: "London thumakda, Aaya ni main aaya\nLondon thumakda, Aaya ni main aaya\nPataka pori gabru, Jaake naiyon aaya\nJatti main, London thumakda\n\nJeans pehen ke aayi main\nHeels pehen ke aayi main\nMakeup kar ke aayi main\nFeeling good today"
-            },
-            {
-                id: 3,
-                title: "Gallan Goodiyaan",
-                movie: "Dil Dhadakne Do",
-                lyrics: "Gallan goodiyaan, gallan goodiyaan\nGallan goodiyaan, kar le\nGallan goodiyaan, gallan goodiyaan\nGallan goodiyaan, kar le\n\nChal ud chaliye\nDariyaa kinara khol de manzilein\nTu jahan main wahan\nSaare dukh dard bhul ke"
-            },
-            {
-                id: 4,
-                title: "Badtameez Dil",
-                movie: "Yeh Jawaani Hai Deewani",
-                lyrics: "Badtameez dil, badtameez dil\nBadtameez dil, maane na\nBadtameez dil, badtameez dil\nBadtameez dil, maane na\n\nIshq kiya maine, kaise dare dare\nDekha re dekha, kaisa nasha chadhta hai\nBaawra sa dil, pagla sa"
-            },
-            {
-                id: 5,
-                title: "Bole Chudiyan",
-                movie: "Kabhi Khushi Kabhie Gham",
-                lyrics: "Bole chudiyan, bole kangna\nHaaye main hogayi teri saajna\nBole chudiyan, bole kangna\nHaaye main hogayi teri saajna\n\nMujhe chhede saanwariya\nJaane kya ho jaaye\nAisi baatein kare saanwariya\nDil mera ghabraaye"
-            }
-        ];
+renderSongs();
+</script>
 
-        function renderSongs() {
-            var songGrid = document.getElementById('songGrid');
-            var html = '';
-            
-            for (var i = 0; i < songs.length; i++) {
-                var song = songs[i];
-                html += '<div class="song-card">';
-                html += '  <div class="song-card-header">';
-                html += '    <div class="song-info">';
-                html += '      <h3 class="song-title">' + song.title + '</h3>';
-                html += '      <p class="song-movie">' + song.movie + '</p>';
-                html += '    </div>';
-                html += '  </div>';
-                html += '  <div class="lyrics-content">';
-                html += '    <pre class="lyrics-text">' + song.lyrics + '</pre>';
-                html += '  </div>';
-                html += '</div>';
-            }
-            
-            songGrid.innerHTML = html;
-        }
-
-        renderSongs();
-    </script>
 </body>
 </html>
